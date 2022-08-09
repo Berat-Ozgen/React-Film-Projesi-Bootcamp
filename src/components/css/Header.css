@@ -1,0 +1,140 @@
+.header {
+    color: #CCFF00;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.header__icons {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.header__icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    flex: 1;
+    align-items: center;
+}
+
+.header__icon>p {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: auto;
+    margin-right: auto;
+    display: none;
+    font-size: small;
+    color: #fff;
+}
+
+.header__icon:hover>p {
+    display: inline;
+}
+
+.header>img {
+    height: 50px;
+    object-fit: contain;
+    margin: 10px 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .header {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .header>img {
+        object-fit: contain;
+        margin-bottom: 20px;
+    }
+    .header__icons {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+}
+
+
+/* From uiverse.io by @Alaner-xs */
+
+.input {
+    background-color: #383838;
+    border: 1ex solid none;
+    border-top-width: 1.7em;
+    margin: 0;
+    padding: 0;
+    color: #383838;
+    word-wrap: break-word;
+    outline: 7px solid #383838;
+    height: 30px;
+    font-size: 17px;
+    text-align: center;
+    transition: all 0.3s;
+    max-width: 190px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.input:hover {
+    border-top-width: 0.2em;
+    background-color: #f1e8e8;
+}
+
+.input:focus {
+    border-top-width: 0.2em;
+    background-color: #f1e8e8;
+}
+
+
+/* logo */
+
+.button {
+    box-sizing: border-box;
+    margin: 15px;
+    background: transparent;
+    padding: 0;
+    border: none;
+}
+
+
+/* button styling */
+
+.button {
+    --border-right: 6px;
+    --text-stroke-color: #00868b;
+    --animation-color: #00bfff;
+    --fs-size: 2em;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: var(--fs-size);
+    font-family: "Arial";
+    position: relative;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+
+/* this is the text, when you hover on button */
+
+.hover-text {
+    position: absolute;
+    box-sizing: border-box;
+    content: attr(data-text);
+    color: var(--animation-color);
+    width: 0%;
+    inset: 0;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-text-stroke: 1px var(--animation-color);
+}
+
+
+/* hover */
+
+.button:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0 0 23px var(--animation-color))
+}

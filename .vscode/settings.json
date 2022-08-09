@@ -1,0 +1,8 @@
+{
+    "vscode-janus-debug.uploadOnSave": [
+        "App"
+    ],
+    "vscode-janus-debug.uploadManually": [
+        "login"
+    ]
+}
