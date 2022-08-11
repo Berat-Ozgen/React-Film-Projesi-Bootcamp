@@ -18,11 +18,10 @@ const Collection = ({movieList,setMovieList,setCollection}) => {
 
 
    
-   
+   const onClickDelet =()=> {
+    setMovieList(...movieList.filter(item => item.id !== movieList.id))
+   }
   
-   
-
-
 
 
 
@@ -33,7 +32,7 @@ const Collection = ({movieList,setMovieList,setCollection}) => {
       <div className='film-list'>
       {movieList?.map((item,i) => (
      <div key={i} className='card'>
-      <button ><AiFillDelete/></button>
+      <button onClick={onClickDelet} ><AiFillDelete/></button>
         <div className='film-card'>
           <div className='card-img'>
            <img src={`${base_url}${item.poster}`} alt="hata" /> 
