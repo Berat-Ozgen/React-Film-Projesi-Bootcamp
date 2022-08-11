@@ -39,16 +39,12 @@ const VideoCard = ({data,movieList,setMovieList}) => {
     const addFind = movieList.find(item => item.id === data.id);
     if(addFind)
     {
-      addFind.amount += 1;
       setMovieList([...movieList.filter(item => item.id !== data.id),{
         id : data.id,
         title: data.title,
         original_title: data.original_title,
         release_date: data.release_date,
         poster: data.poster_path,
-
-
-        amount : addFind.amount
       }])
 
     }
@@ -60,8 +56,6 @@ const VideoCard = ({data,movieList,setMovieList}) => {
         original_title: data.original_title,
         release_date: data.release_date,
         poster: data.poster_path,
-
-        amount : 1
       }])
     }
     console.log(movieList)

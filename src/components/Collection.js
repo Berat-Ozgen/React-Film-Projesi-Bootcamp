@@ -18,17 +18,9 @@ const Collection = ({movieList,setMovieList,setCollection}) => {
 
 
    
-     function registerClickHandler(e) {
-      let target = e.target;
-      target.parentNode.parentNode.removeChild(target.parentNode);
-    }
-    
-    var removeBtn = document.querySelectorAll('.remove');
-    
-    for (let i = 0; i < removeBtn.length; i++) {
-      removeBtn[i].addEventListener("click", registerClickHandler, false);
-    }
-       
+   
+  
+   
 
 
 
@@ -41,7 +33,7 @@ const Collection = ({movieList,setMovieList,setCollection}) => {
       <div className='film-list'>
       {movieList?.map((item,i) => (
      <div key={i} className='card'>
-      <button onClick={registerClickHandler}><AiFillDelete/></button>
+      <button ><AiFillDelete/></button>
         <div className='film-card'>
           <div className='card-img'>
            <img src={`${base_url}${item.poster}`} alt="hata" /> 
