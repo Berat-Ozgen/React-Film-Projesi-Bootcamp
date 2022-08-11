@@ -6,7 +6,7 @@ import axios from '../axios'
 import {Skeleton} from 'antd'
 
 
-const Results = ({selectedOption}) => {
+const Results = ({selectedOption,movieList,setMovieList}) => {
 
   const [moveis,setMovies] = useState()
 
@@ -43,7 +43,7 @@ const Results = ({selectedOption}) => {
 
       {
         moveis?.map((data,idx) => 
-        <VideoCard key={idx} data = {data} />
+        <VideoCard movieList={movieList} setMovieList={setMovieList} key={idx} data = {data} />
         )
       }
        

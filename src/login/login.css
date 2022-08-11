@@ -1,3 +1,9 @@
+.login-component {
+    border: 1px solid #1c0f45;
+    min-height: 100vh;
+    background-color: #1c0f45;
+}
+
 *,
 *:before,
 *:after {

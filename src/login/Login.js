@@ -2,7 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import './login.css'
 
-const Login = ({setLogin}) => {
+
+const Login = ({setLogin,userLogin, setUserLogin}) => {
 
   const [error,setError] = useState(false)
   const [username,setUsername] = useState()
@@ -16,12 +17,16 @@ const Login = ({setLogin}) => {
   const onClickLogin = (e) => {
       if(username === "berat" && password === "123456") {
         setLogin(false)
+        setUserLogin(true)
+
       } else {
         setError(true)
+
         setTimeout(() => {
           setError(false)
 
         }, 2000);
+
       }
   }
 

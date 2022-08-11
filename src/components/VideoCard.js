@@ -9,11 +9,14 @@ import movieTrailer from 'movie-trailer';
 
 export const base_url = "https://image.tmdb.org/t/p/original";
 
-const VideoCard = ({data}) => {
+const VideoCard = ({data,movieList,setMovieList}) => {
 
   const [flipped, setFlipped] = useState(false)
   const [visible,setVisible] = useState(false)
   const [url,setUrl] = useState("")
+  const [on,setOn] = useState(false)
+
+
    
   useEffect(()=> {
     movieTrailer(data?.original_title || data?.title, 18 )
@@ -23,6 +26,40 @@ const VideoCard = ({data}) => {
       console.log("temporarily unavailable")
     })
   }, [data?.original_title, data?.title])
+
+  const basketProduct = movieList.find(item => item.id === data.id);
+
+  function addBasket(){
+    
+    const addFind = movieList.find(item => item.id === data.id);
+    if(addFind)
+    {
+      addFind.amount += 1;
+      setMovieList([...movieList.filter(item => item.id !== data.id),{
+        id : data.id,
+        name: data.title,
+        release_date: data.release_date,
+        poster: data.poster_path,
+        amount : addFind.amount
+      }])
+
+    }
+    else 
+    {
+      setMovieList([...movieList,{
+        id : data.id,
+        name: data.title,
+        release_date: data.release_date,
+        poster: data.poster_path,
+        amount : 1
+      }])
+    }
+    console.log(movieList)
+  }
+
+
+
+
 
   
  if (flipped) {
@@ -83,6 +120,7 @@ const VideoCard = ({data}) => {
 
         
         {/* // fornt side */}
+        <button onClick={addBasket} >+</button>
         <div style={{
           width: 250,
           height: 435,

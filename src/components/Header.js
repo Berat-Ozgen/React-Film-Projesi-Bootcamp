@@ -8,13 +8,13 @@ import axios from 'axios';
 
 export const API_KEY = "d66ff5af";
 
-const Header = ({setSelectedOption,setLogin}) => {
+const Header = ({setSelectedOption,setLogin,userLogin,setUserLogin,setCollection}) => {
   
-  const [visible, setVisible] = useState(false);
+
 
 
   const onSearch = (e) => {
-      let _value = ""
+      let _value = "";
        _value = e.target.value
       setSelectedOption(request.searchMovies + _value);
 
@@ -22,7 +22,6 @@ const Header = ({setSelectedOption,setLogin}) => {
         setSelectedOption(request.fetchTrending)
       }
 
-      console.log(_value === "")
     
     
   };
@@ -34,6 +33,8 @@ const Header = ({setSelectedOption,setLogin}) => {
   return (
     <div className='header'>
         <div className='header__icons'>
+
+              {userLogin === true ?  <div className="header__icon profil">Berat Özgen</div> :  <div className="header__icon profil">Misafir</div>}          
 
             <div onClick={()=> setSelectedOption(request.fetchAnimation)} className='header__icon'>
             <MdHome  size={"30px"}/>
@@ -50,7 +51,7 @@ const Header = ({setSelectedOption,setLogin}) => {
             <p>Verified</p>
             </div>
 
-            <div className='header__icon'>
+            <div onClick={()=> setCollection(true)} className='header__icon'>
             <MdCollectionsBookmark size={"30px"}/>
             <p>Collections</p>
             </div>
