@@ -18,11 +18,10 @@ const Collection = ({movieList,setMovieList,setCollection}) => {
 
 
    
-   const onClickDelet =()=> {
-    setMovieList(...movieList.filter(item => item.id !== movieList.id))
-   }
+     const onClickDelet =()=> {
+      setMovieList(...movieList.filter(item => item.id !== movieList.id))
+     }
   
-
 
 
      return (
