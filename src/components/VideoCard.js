@@ -30,6 +30,8 @@ const VideoCard = ({data,movieList,setMovieList}) => {
     })
   }, [data?.original_title, data?.title])
 
+
+
   const basketProduct = movieList.find(item => item.id === data.id);
 
   function addBasket(){
@@ -40,9 +42,12 @@ const VideoCard = ({data,movieList,setMovieList}) => {
       addFind.amount += 1;
       setMovieList([...movieList.filter(item => item.id !== data.id),{
         id : data.id,
-        name: data.title,
+        title: data.title,
+        original_title: data.original_title,
         release_date: data.release_date,
         poster: data.poster_path,
+
+
         amount : addFind.amount
       }])
 
@@ -51,9 +56,11 @@ const VideoCard = ({data,movieList,setMovieList}) => {
     {
       setMovieList([...movieList,{
         id : data.id,
-        name: data.title,
+        title: data.title,
+        original_title: data.original_title,
         release_date: data.release_date,
         poster: data.poster_path,
+
         amount : 1
       }])
     }
@@ -126,16 +133,16 @@ const VideoCard = ({data,movieList,setMovieList}) => {
        
         <div style={{
           width: 250,
-          height: 450,
+          height: 460,
           cursor: "pointer"
-        }}onClick={() => setFlipped(!flipped)} className='videoCard'>
+        }} className='videoCard'>
 
-<button class="tooltip">
+<button onClick={addBasket} class="tooltip">
   <AiOutlinePlus/>
 </button>
 
 
-          <img src={`${base_url}${data?.poster_path}`} alt="poster" />
+          <img onClick={() => setFlipped(!flipped)} src={`${base_url}${data?.poster_path}`} alt="poster" />
           <h3 style={{
             color: "#fff",
             margin: "10px 10px"

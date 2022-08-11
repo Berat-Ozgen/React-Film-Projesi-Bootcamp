@@ -20,7 +20,7 @@ function App() {
   if (login) {
     return <Login userLogin={userLogin} setUserLogin={setUserLogin} login={login} setLogin={setLogin}/>
   } else if (collection) {
-    return <Collection movieList={movieList} setMovieList={setMovieList}/>
+    return <Collection setCollection={setCollection} movieList={movieList} setMovieList={setMovieList}/>
   }
   
   return (

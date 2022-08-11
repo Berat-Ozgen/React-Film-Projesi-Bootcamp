@@ -20,7 +20,6 @@ const Results = ({selectedOption,movieList,setMovieList}) => {
       fetchData()
   }, [selectedOption])
 
-  console.log(moveis)
 
   return (
     <div className='results'>
