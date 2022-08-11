@@ -6,6 +6,9 @@ import { useState,useEffect } from 'react';
 import PreviewModal from '../utils/PreviewModal';
 import { truncate } from '../utils/truncate';
 import movieTrailer from 'movie-trailer'; 
+import {AiOutlinePlus} from 'react-icons/ai';
+
+
 
 export const base_url = "https://image.tmdb.org/t/p/original";
 
@@ -120,12 +123,18 @@ const VideoCard = ({data,movieList,setMovieList}) => {
 
         
         {/* // fornt side */}
-        <button onClick={addBasket} >+</button>
+       
         <div style={{
           width: 250,
-          height: 435,
+          height: 450,
           cursor: "pointer"
         }}onClick={() => setFlipped(!flipped)} className='videoCard'>
+
+<button class="tooltip">
+  <AiOutlinePlus/>
+</button>
+
+
           <img src={`${base_url}${data?.poster_path}`} alt="poster" />
           <h3 style={{
             color: "#fff",
