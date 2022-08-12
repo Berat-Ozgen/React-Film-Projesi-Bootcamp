@@ -15,28 +15,15 @@ const Collection = ({moveis,setMovies,movieList,setMovieList,setCollection}) => 
      
 
    
-  function onClickDelet(){
-    const removeFind = movieList.find(item => item.id === moveis.id);
-    console.log(removeFind === true)
+  function onClickDelet(id){
 
-    if(!removeFind)
-    {
-      setMovieList([...movieList.filter(item => item.id !== moveis.id)]);
-    }
-    else
-    {
-      setMovieList([...movieList.filter(item => item.id !== moveis.id),
-      {
-        id : movieList.id,
-        title: movieList.title,
-        original_title: movieList.original_title,
-        release_date: movieList.release_date,
-        poster: movieList.poster_path,
-        amount : removeFind.amount
-      }])
-    }
+    
+      setMovieList([...movieList.filter(item => item.id !== id)]);
+   
+
+    
   }
-  
+  console.log(movieList)
 
 
      return (
@@ -46,7 +33,7 @@ const Collection = ({moveis,setMovies,movieList,setMovieList,setCollection}) => 
       <div className='film-list'>
       {movieList?.map((item,i) => (
      <div key={i} className='card'>
-      <button onClick={onClickDelet} ><AiFillDelete/></button>
+      <button onClick={()=>onClickDelet(item.id)} ><AiFillDelete/></button>
         <div className='film-card'>
           <div className='card-img'>
            <img src={`${base_url}${item.poster}`} alt="hata" /> 
