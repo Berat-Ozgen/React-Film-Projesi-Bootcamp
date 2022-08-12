@@ -1,7 +1,7 @@
 .login-component {
-    border: 1px solid #1c0f45;
+    border: 1px solid #0b090f;
     min-height: 100vh;
-    background-color: #1c0f45;
+    background-color: #0b090f;
 }
 
 *,
@@ -130,12 +130,13 @@ input {
     margin: 5px;
     width: 150px;
     height: 50px;
-    background-color: #00CED1;
+    background-color: #2f1a58;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     border: none;
     cursor: pointer;
-    color: black;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .back-span:hover {
@@ -145,4 +146,5 @@ input {
     transition: 100ms;
     background-color: #008080;
     color: white;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }

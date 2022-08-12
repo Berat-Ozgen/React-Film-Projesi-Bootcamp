@@ -6,7 +6,7 @@ import { useState,useEffect } from 'react';
 import PreviewModal from '../utils/PreviewModal';
 import { truncate } from '../utils/truncate';
 import movieTrailer from 'movie-trailer'; 
-import {AiOutlinePlus} from 'react-icons/ai';
+import {MdAddCircle} from 'react-icons/md';
 
 
 
@@ -66,43 +66,6 @@ const VideoCard = ({data,movieList,setMovieList,setRemoveBasketS,removeBasketS})
 
 
   
-
-
-
-
-  function removeBasket  () {
-    const removeFind = movieList.find(item => item.id === data.id);
-   
-    if(removeFind)
-    {
-      setMovieList([...movieList.filter(item => item.id !== data.id)]);
-    }
-    else
-    {
-      setMovieList([...movieList.filter(item => item.id !== data.id),
-      {
-        id : data.id,
-        title: data.title,
-        original_title: data.original_title,
-        release_date: data.release_date,
-        poster: data.poster_path,
-        amount : removeFind.amount
-      }])
-    }
-    console.log(movieList)
-  }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   
@@ -171,11 +134,9 @@ const VideoCard = ({data,movieList,setMovieList,setRemoveBasketS,removeBasketS})
           cursor: "pointer"
         }} className='videoCard'>
 
-<button onClick={addBasket} class="tooltip"> 
-  <AiOutlinePlus/>
+<button onClick={addBasket} class="add"> 
+        <MdAddCircle color='white'/>
 </button>
-<button onClick={removeBasket}  class="tooltip">-</button>
-
 
           <img onClick={() => setFlipped(!flipped)} src={`${base_url}${data?.poster_path}`} alt="poster" />
           <h3 style={{

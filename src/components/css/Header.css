@@ -1,5 +1,5 @@
 .profil {
-    background-color: #1c0f45;
+    background-color: #140e20;
     border-radius: 115px;
     line-height: 50px;
     width: 50px;
@@ -8,7 +8,7 @@
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    text-shadow: #2d4251 5px 5px 5px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     cursor: pointer;
 }
 
