@@ -2,20 +2,21 @@ h1 {
     text-align: center;
     padding-top: 20px;
     font-size: 42px;
-    color: white;
+    color: #e73c7e;
 }
 
 .Collection-component {
+    background-color: #23a6d5;
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
     min-height: 100vh;
-    background-color: #0b090f;
-    background-color: #0b090f;
-    color: red;
 }
 
 .film-list {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .card {
@@ -63,6 +64,6 @@ h1 {
 .delete:hover {
     width: 45px;
     height: 45px;
-    background-color: #46318d;
+    background-color: #23d5ab;
     border-radius: 100%;
 }

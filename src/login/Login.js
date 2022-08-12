@@ -1,9 +1,14 @@
 import React from 'react'
 import { useState } from 'react'
 import './login.css'
+import {RiLoginBoxFill} from 'react-icons/ri';
+import {GrHome} from 'react-icons/gr';
+import { ToastContainer, toast } from 'react-toastify';
 
 
-const Login = ({setLogin,userLogin, setUserLogin}) => {
+
+
+const Login = ({setLogin,userLogin, setUserLogin,onProfil,setOnProfil}) => {
 
   const [error,setError] = useState(false)
   const [username,setUsername] = useState()
@@ -18,13 +23,11 @@ const Login = ({setLogin,userLogin, setUserLogin}) => {
       if(username === "berat" && password === "123456") {
         setLogin(false)
         setUserLogin(true)
-
+        setOnProfil(true)
       } else {
         setError(true)
-
         setTimeout(() => {
           setError(false)
-
         }, 2000);
 
       }
@@ -32,15 +35,13 @@ const Login = ({setLogin,userLogin, setUserLogin}) => {
 
   return (
     <div className='login-component'>
-   <div onClick={() => setLogin(false)} className='back-span'>HOME</div>
+   <div onClick={() => setLogin(false)} className='back-span'><GrHome/></div>
         
+
   
-    <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
+   
     <form>
-        <h3 style={{color: "yellow"}}>Login Here</h3>
+        <h3 style={{color: "yellow"}}><RiLoginBoxFill/> GİRİŞ YAPINIZ</h3>
 
         <label>Username</label>
         <input type="text" onChange={(e) => setUsername(e.target.value)} placeholder=" Username " />

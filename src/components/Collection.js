@@ -29,7 +29,7 @@ const Collection = ({moveis,setMovies,movieList,setMovieList,setCollection}) => 
      return (
       <div className='Collection-component'>
 
-        <h1 style={{color:"white"}}>Collection</h1>
+        <h1 style={{color:"#e73c7e"}}>Collection</h1>
 
       <div onClick={() => setCollection(false)} className='back-span'>HOME</div>
       <div className='film-list'>

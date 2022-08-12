@@ -7,17 +7,21 @@ import PreviewModal from '../utils/PreviewModal';
 import { truncate } from '../utils/truncate';
 import movieTrailer from 'movie-trailer'; 
 import {MdAddCircle} from 'react-icons/md';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 
 
 export const base_url = "https://image.tmdb.org/t/p/original";
 
-const VideoCard = ({data,movieList,setMovieList,setRemoveBasketS,removeBasketS}) => {
+const VideoCard = ({data,movieList,setMovieList,setRemoveBasketS,removeBasketS,onProfil,setOnProfil}) => {
 
   const [flipped, setFlipped] = useState(false)
   const [visible,setVisible] = useState(false)
   const [url,setUrl] = useState("")
   const [on,setOn] = useState(false)
+  const [err,setErr] =useState(false)
+  
   
 
    
@@ -64,7 +68,12 @@ const VideoCard = ({data,movieList,setMovieList,setRemoveBasketS,removeBasketS})
   }
 
 
+  const notify = () => {
+      alert("giriş yapmadan favorilere ekleyemezsiniz")
+  }
 
+  
+ 
   
 
 
@@ -72,7 +81,7 @@ const VideoCard = ({data,movieList,setMovieList,setRemoveBasketS,removeBasketS})
  if (flipped) {
 
   return(
-    <>
+    <div>
        <div style={{
       width: 250,
       height: 435,
@@ -117,15 +126,15 @@ const VideoCard = ({data,movieList,setMovieList,setRemoveBasketS,removeBasketS})
           </span>
         </div>
             <PreviewModal visible={visible} setVisible={setVisible}/>
-    </>
+    </div>
 
   )
 
 
  }
-  return (<>
+  return (<div>
 
-        
+
         {/* // fornt side */}
        
         <div style={{
@@ -134,7 +143,7 @@ const VideoCard = ({data,movieList,setMovieList,setRemoveBasketS,removeBasketS})
           cursor: "pointer"
         }} className='videoCard'>
 
-<button onClick={addBasket} class="add"> 
+<button  onClick={onProfil === true ? addBasket : notify} class="add"> 
         <MdAddCircle color='white'/>
 </button>
 
@@ -150,7 +159,7 @@ const VideoCard = ({data,movieList,setMovieList,setRemoveBasketS,removeBasketS})
          data = {data}
          url = {url}
          />
-  </>
+  </div>
     
   )
 }

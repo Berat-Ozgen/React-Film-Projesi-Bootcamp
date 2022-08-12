@@ -17,11 +17,13 @@ function App() {
   const [collection, setCollection] = useState(false);
   const [removeBasketS,setRemoveBasketS] = useState()
   const [moveis,setMovies] = useState()
+  const [onProfil,setOnProfil] = useState(false)
+
 
 
 
   if (login) {
-    return <Login userLogin={userLogin} setUserLogin={setUserLogin} login={login} setLogin={setLogin}/>
+    return <Login onProfil={onProfil} setOnProfil={setOnProfil} userLogin={userLogin} setUserLogin={setUserLogin} login={login} setLogin={setLogin}/>
   } else if (collection) {
     return <Collection moveis={moveis} setMovies={setMovies} setRemoveBasketS={setRemoveBasketS} removeBasketS={removeBasketS} setCollection={setCollection} movieList={movieList} setMovieList={setMovieList}/>
   }
@@ -30,7 +32,7 @@ function App() {
     <div className="App">
       <Header setCollection={setCollection} userLogin={userLogin} setUserLogin={setUserLogin} login={login} setLogin={setLogin} setSelectedOption={setSelectedOption} />
       <Navbar setSelectedOption={setSelectedOption} />
-      <Results moveis={moveis} setMovies={setMovies} setRemoveBasketS={setRemoveBasketS} removeBasketS={removeBasketS} movieList={movieList} setMovieList={setMovieList} selectedOption={selectedOption} />
+      <Results onProfil={onProfil} setOnProfil={setOnProfil} moveis={moveis} setMovies={setMovies} setRemoveBasketS={setRemoveBasketS} removeBasketS={removeBasketS} movieList={movieList} setMovieList={setMovieList} selectedOption={selectedOption} />
     </div>
   );
 }

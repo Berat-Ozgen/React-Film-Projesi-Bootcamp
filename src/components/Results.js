@@ -6,7 +6,7 @@ import axios from '../axios'
 import {Skeleton} from 'antd'
 
 
-const Results = ({moveis,setMovies,setRemoveBasketS,removeBasketS,selectedOption,movieList,setMovieList}) => {
+const Results = ({moveis,setMovies,setRemoveBasketS,removeBasketS,selectedOption,movieList,setMovieList,onProfil,setOnProfil}) => {
 
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const Results = ({moveis,setMovies,setRemoveBasketS,removeBasketS,selectedOption
 
       {
         moveis?.map((data,idx) => 
-        <VideoCard  setRemoveBasketS={setRemoveBasketS} removeBasketS={removeBasketS} movieList={movieList} setMovieList={setMovieList} key={idx} data = {data} />
+        <VideoCard onProfil={onProfil} setOnProfil={setOnProfil} setRemoveBasketS={setRemoveBasketS} removeBasketS={removeBasketS} movieList={movieList} setMovieList={setMovieList} key={idx} data = {data} />
         )
       }
        

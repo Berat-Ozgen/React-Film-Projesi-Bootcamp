@@ -36,7 +36,7 @@
     width: 30px;
     height: 30px;
     border-radius: 100%;
-    background-color: rgb(2, 2, 26);
+    background: initial;
     border: none;
     box-shadow: black 0px 3px 8px;
     font-size: 20px;
@@ -44,10 +44,7 @@
     margin: 3px;
 }
 
-.add :hover {
-    width: 35px;
-    height: 35px;
-    border-radius: 80%;
+.add:hover {
     background-color: green;
-    transition: 130ms;
+    transition: 190ms;
 }
