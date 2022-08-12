@@ -12,13 +12,13 @@ import {AiOutlinePlus} from 'react-icons/ai';
 
 export const base_url = "https://image.tmdb.org/t/p/original";
 
-const VideoCard = ({data,movieList,setMovieList}) => {
+const VideoCard = ({data,movieList,setMovieList,setRemoveBasketS,removeBasketS}) => {
 
   const [flipped, setFlipped] = useState(false)
   const [visible,setVisible] = useState(false)
   const [url,setUrl] = useState("")
   const [on,setOn] = useState(false)
-
+  
 
    
   useEffect(()=> {
@@ -35,16 +35,17 @@ const VideoCard = ({data,movieList,setMovieList}) => {
   const basketProduct = movieList.find(item => item.id === data.id);
 
   function addBasket(){
-    
     const addFind = movieList.find(item => item.id === data.id);
     if(addFind)
     {
+      addFind.amount += 1;
       setMovieList([...movieList.filter(item => item.id !== data.id),{
         id : data.id,
         title: data.title,
         original_title: data.original_title,
         release_date: data.release_date,
         poster: data.poster_path,
+        amount : addFind.amount
       }])
 
     }
@@ -56,10 +57,49 @@ const VideoCard = ({data,movieList,setMovieList}) => {
         original_title: data.original_title,
         release_date: data.release_date,
         poster: data.poster_path,
+        amount : 1
       }])
     }
     console.log(movieList)
   }
+
+
+
+  
+
+
+
+
+  function removeBasket  () {
+    const removeFind = movieList.find(item => item.id === data.id);
+   
+    if(removeFind)
+    {
+      setMovieList([...movieList.filter(item => item.id !== data.id)]);
+    }
+    else
+    {
+      setMovieList([...movieList.filter(item => item.id !== data.id),
+      {
+        id : data.id,
+        title: data.title,
+        original_title: data.original_title,
+        release_date: data.release_date,
+        poster: data.poster_path,
+        amount : removeFind.amount
+      }])
+    }
+    console.log(movieList)
+  }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -131,9 +171,10 @@ const VideoCard = ({data,movieList,setMovieList}) => {
           cursor: "pointer"
         }} className='videoCard'>
 
-<button onClick={addBasket} class="tooltip">
+<button onClick={addBasket} class="tooltip"> 
   <AiOutlinePlus/>
 </button>
+<button onClick={removeBasket}  class="tooltip">-</button>
 
 
           <img onClick={() => setFlipped(!flipped)} src={`${base_url}${data?.poster_path}`} alt="poster" />

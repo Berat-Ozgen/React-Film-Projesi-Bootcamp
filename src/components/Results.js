@@ -6,9 +6,8 @@ import axios from '../axios'
 import {Skeleton} from 'antd'
 
 
-const Results = ({selectedOption,movieList,setMovieList}) => {
+const Results = ({moveis,setMovies,setRemoveBasketS,removeBasketS,selectedOption,movieList,setMovieList}) => {
 
-  const [moveis,setMovies] = useState()
 
   useEffect(() => {
       async function fetchData() {
@@ -42,7 +41,7 @@ const Results = ({selectedOption,movieList,setMovieList}) => {
 
       {
         moveis?.map((data,idx) => 
-        <VideoCard movieList={movieList} setMovieList={setMovieList} key={idx} data = {data} />
+        <VideoCard  setRemoveBasketS={setRemoveBasketS} removeBasketS={removeBasketS} movieList={movieList} setMovieList={setMovieList} key={idx} data = {data} />
         )
       }
        

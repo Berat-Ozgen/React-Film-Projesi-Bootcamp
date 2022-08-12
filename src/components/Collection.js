@@ -11,16 +11,31 @@ import PreviewModal from '../utils/PreviewModal';
 export const base_url = "https://image.tmdb.org/t/p/original";
 
 
-const Collection = ({movieList,setMovieList,setCollection}) => {
-     const [active,setActive] = useState(true)
-     const [vis,setVis] = useState(false)
-     const [urrl,setUrl] = useState("")
-
+const Collection = ({moveis,setMovies,movieList,setMovieList,setCollection}) => {
+     
 
    
-     const onClickDelet =()=> {
-      setMovieList(...movieList.filter(item => item.id !== movieList.id))
-     }
+  function onClickDelet(){
+    const removeFind = movieList.find(item => item.id === moveis.id);
+    console.log(removeFind === true)
+
+    if(!removeFind)
+    {
+      setMovieList([...movieList.filter(item => item.id !== moveis.id)]);
+    }
+    else
+    {
+      setMovieList([...movieList.filter(item => item.id !== moveis.id),
+      {
+        id : movieList.id,
+        title: movieList.title,
+        original_title: movieList.original_title,
+        release_date: movieList.release_date,
+        poster: movieList.poster_path,
+        amount : removeFind.amount
+      }])
+    }
+  }
   
 
 
