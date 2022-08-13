@@ -7,14 +7,13 @@ import PreviewModal from '../utils/PreviewModal';
 import { truncate } from '../utils/truncate';
 import movieTrailer from 'movie-trailer'; 
 import {MdAddCircle} from 'react-icons/md';
-import { ToastContainer, toast } from 'react-toastify';
 
 
 
 
 export const base_url = "https://image.tmdb.org/t/p/original";
 
-const VideoCard = ({data,movieList,setMovieList,setRemoveBasketS,removeBasketS,onProfil,setOnProfil}) => {
+const VideoCard = ({data,movieList,setMovieList,onProfil}) => {
 
   const [flipped, setFlipped] = useState(false)
   const [visible,setVisible] = useState(false)
@@ -30,19 +29,16 @@ const VideoCard = ({data,movieList,setMovieList,setRemoveBasketS,removeBasketS,o
     .then((res) => {
       setUrl(res)
     }).catch((err) => {
-      console.log("temporarily unavailable")
     })
   }, [data?.original_title, data?.title])
 
 
 
-  const basketProduct = movieList.find(item => item.id === data.id);
 
   function addBasket(){
     const addFind = movieList.find(item => item.id === data.id);
     if(addFind)
     {
-      addFind.amount += 1;
       setMovieList([...movieList.filter(item => item.id !== data.id),{
         id : data.id,
         title: data.title,
@@ -81,6 +77,7 @@ const VideoCard = ({data,movieList,setMovieList,setRemoveBasketS,removeBasketS,o
  if (flipped) {
 
   return(
+    // back side
     <div>
        <div style={{
       width: 250,
@@ -120,7 +117,7 @@ const VideoCard = ({data,movieList,setMovieList,setRemoveBasketS,removeBasketS,o
               fontWeight: 400,
               margin: "0px 5px" 
             }}> 
-                watch Now
+                Watch Now
             </strong>
 
           </span>

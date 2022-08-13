@@ -11,7 +11,7 @@ import PreviewModal from '../utils/PreviewModal';
 export const base_url = "https://image.tmdb.org/t/p/original";
 
 
-const Collection = ({moveis,setMovies,movieList,setMovieList,setCollection}) => {
+const Collection = ({movieList,setMovieList,setCollection}) => {
      
 
    
