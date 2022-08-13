@@ -19,7 +19,7 @@ const Login = ({setLogin,userLogin, setUserLogin,onProfil,setOnProfil}) => {
 
 
   const onClickLogin = (e) => {
-      if(username === "berat" && password === "123456") {
+      if(username === "admin" && password === "admin") {
         setLogin(false)
         setUserLogin(true)
         setOnProfil(true)
