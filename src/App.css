@@ -5,6 +5,10 @@
     min-height: 100vh;
 }
 
+.App {
+    scrollbar-color: red;
+}
+
 @keyframes gradient {
     0% {
         background-position: 0% 50%;

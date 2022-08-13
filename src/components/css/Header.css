@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&family=Montserrat:wght@100&display=swap');
 .profil {
     background-color: #140e20;
     border-radius: 115px;
@@ -10,6 +11,8 @@
     font-weight: bold;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     cursor: pointer;
+    font-family: 'Finger Paint', cursive;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .header {
