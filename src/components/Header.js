@@ -3,8 +3,8 @@ import {MdHome,MdTrendingUp,MdLiveTv,MdCollectionsBookmark,
 MdSearch,MdPerson} from 'react-icons/md'
 import './css/Header.css'
 import request from './Request'
-import {Dropdown,Input} from 'antd';
-import axios from 'axios';
+
+
 
 export const API_KEY = "d66ff5af";
 
@@ -32,6 +32,7 @@ const Header = ({setSelectedOption,setLogin,userLogin,setUserLogin,setCollection
   
   return (
     <div className='header'>
+
         <div className='header__icons'>
 
               {userLogin === true ?  <div className="header__icon profil">Berat Özgen</div> :  <div className="header__icon profil">Misafir</div>}          
